@@ -123,7 +123,9 @@
         <div
           v-if="$slots.append"
           class="el-table__append-gutter"
-          :style="{ height: layout.appendHeight + 'px'}"></div>
+          :style="{
+            height: layout.appendHeight + 'px'
+          }"></div>
       </div>
       <div
         v-if="showSummary"
@@ -181,10 +183,6 @@
             width: bodyWidth
           }">
         </table-body>
-         <div
-          v-if="$slots.append"
-          class="el-table__append-gutter"
-          :style="{ height: layout.appendHeight + 'px' }"></div>
       </div>
       <div
         v-if="showSummary"

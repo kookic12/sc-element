@@ -50,7 +50,6 @@
   import Dropdown from './dropdown';
   import ElCheckbox from 'element-ui/packages/checkbox';
   import ElCheckboxGroup from 'element-ui/packages/checkbox-group';
-  import ElScrollbar from 'element-ui/packages/scrollbar';
 
   export default {
     name: 'ElTableFilterPanel',
@@ -63,8 +62,7 @@
 
     components: {
       ElCheckbox,
-      ElCheckboxGroup,
-      ElScrollbar
+      ElCheckboxGroup
     },
 
     props: {
