@@ -28,7 +28,7 @@ export default {
     modalClass: {},
     modalAppendToBody: {
       type: Boolean,
-      default: true
+      default: false
     },
     lockScroll: {
       type: Boolean,
@@ -132,7 +132,7 @@ export default {
         }
         PopupManager.openModal(this._popupId, PopupManager.nextZIndex(), this.modalAppendToBody ? undefined : dom, props.modalClass, props.modalFade);
         if (props.lockScroll) {
-          this.withoutHiddenClass = !hasClass(window.parent.document.body, 'el-popup-parent--hidden');
+          this.withoutHiddenClass = !hasClass(document.body, 'el-popup-parent--hidden');
           if (this.withoutHiddenClass) {
             this.bodyPaddingRight = document.body.style.paddingRight;
             this.computedBodyPaddingRight = parseInt(getStyle(document.body, 'paddingRight'), 10);
@@ -143,9 +143,10 @@ export default {
           if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === 'scroll') && this.withoutHiddenClass) {
             document.body.style.paddingRight = this.computedBodyPaddingRight + scrollBarWidth + 'px';
           }
-          addClass(window.parent.document.body, 'el-popup-parent--hidden');
+          addClass(document.body, 'el-popup-parent--hidden');
         }
       }
+
       if (getComputedStyle(dom).position === 'static') {
         dom.style.position = 'absolute';
       }
@@ -205,7 +206,7 @@ export default {
     restoreBodyStyle() {
       if (this.modal && this.withoutHiddenClass) {
         document.body.style.paddingRight = this.bodyPaddingRight;
-        removeClass(window.parent.document.body, 'el-popup-parent--hidden');
+        removeClass(document.body, 'el-popup-parent--hidden');
       }
       this.withoutHiddenClass = true;
     }

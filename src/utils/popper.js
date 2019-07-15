@@ -44,7 +44,7 @@
 
     'use strict';
 
-    var root = top.window;
+    var root = window;
 
     // default options
     var DEFAULTS = {

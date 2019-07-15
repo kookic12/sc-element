@@ -97,7 +97,7 @@ const PopupManager = {
     if (dom && dom.parentNode && dom.parentNode.nodeType !== 11) {
       dom.parentNode.appendChild(modalDom);
     } else {
-      window.parent.document.body.appendChild(modalDom);
+      document.body.appendChild(modalDom);
     }
 
     if (zIndex) {

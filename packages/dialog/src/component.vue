@@ -62,7 +62,7 @@
 
       appendToBody: {
         type: Boolean,
-        default: true // 将元素插入body
+        default: false
       },
 
       lockScroll: {
@@ -121,7 +121,7 @@
             this.$refs.dialog.scrollTop = 0;
           });
           if (this.appendToBody) {
-            window.parent.document.body.appendChild(this.$el);
+            document.body.appendChild(this.$el);
           }
         } else {
           this.$el.removeEventListener('scroll', this.updatePopper);
@@ -184,9 +184,9 @@
     mounted() {
       if (this.visible) {
         this.rendered = true;
-        top.window.open();
+        this.open();
         if (this.appendToBody) {
-          window.parent.document.body.appendChild(this.$el);
+          document.body.appendChild(this.$el);
         }
       }
     },
